@@ -5,7 +5,7 @@ class CreateCities < ActiveRecord::Migration[5.0]
       t.string    :name
       t.string    :country
       t.string    :picture_url
-      t.string    :temperature
+      t.integer   :temperature
       t.string    :weather_emoji
       t.string    :air_quality_above
       t.integer   :air_quality_value

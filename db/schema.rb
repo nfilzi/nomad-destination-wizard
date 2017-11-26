@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20171126165542) do
     t.string   "name"
     t.string   "country"
     t.string   "picture_url"
-    t.string   "temperature"
+    t.integer  "temperature"
     t.string   "weather_emoji"
     t.string   "air_quality_above"
     t.integer  "air_quality_value"
