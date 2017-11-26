@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171126165542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: :cascade do |t|
+    t.integer  "rank"
+    t.string   "name"
+    t.string   "country"
+    t.string   "picture_url"
+    t.string   "temperature"
+    t.string   "weather_emoji"
+    t.string   "air_quality_above"
+    t.integer  "air_quality_value"
+    t.integer  "rent_cost_per_month"
+    t.integer  "wifi_speed"
+    t.float    "score_nomad"
+    t.float    "score_cost"
+    t.float    "score_internet"
+    t.float    "score_fun"
+    t.float    "score_safety"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
 end
