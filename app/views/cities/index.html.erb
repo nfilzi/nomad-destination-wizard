@@ -1,0 +1,22 @@
+<h1>The cities</h1>
+
+<p><%= @cities.count %> cities found!</p>
+<ul>
+  <% @cities.each do |city| %>
+    <li>
+      <h2><%= city.name %></h2>
+      <ul>
+        <li><strong>rank:</strong> <%= city.rank %></li>
+        <li><strong>temperature:</strong> <%= city.temperature %></li>
+        <li><strong>weather_emoji:</strong> <%= city.weather_emoji %></li>
+        <li><strong>rent_cost_per_month:</strong> <%= city.rent_cost_per_month %></li>
+        <li><strong>wifi_speed:</strong> <%= city.wifi_speed %></li>
+        <li><strong>score_nomad:</strong> <%= city.score_nomad %></li>
+        <li><strong>score_cost:</strong> <%= city.score_cost %></li>
+        <li><strong>score_internet:</strong> <%= city.score_internet %></li>
+        <li><strong>score_fun:</strong> <%= city.score_fun %></li>
+        <li><strong>score_safety:</strong> <%= city.score_safety %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>

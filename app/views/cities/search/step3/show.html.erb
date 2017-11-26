@@ -1,0 +1,10 @@
+<h1>How nomadic your city of choice should be?</h1>
+
+<p>
+  Country of <%= @country.name %>
+</p>
+
+<%= form_tag(cities_search_step3_path) do %>
+  <%= select_tag :score_nomad, options_for_select(percentage_range_within(@country.min_score_nomad, @country.max_score_nomad))%>
+  <%= submit_tag "Let's go!", class: "btn btn-primary" %>
+<% end %>
