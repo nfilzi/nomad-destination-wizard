@@ -1,5 +1,3 @@
-
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
@@ -9,19 +7,19 @@
       <%= form_tag cities_path, method: :get, class: 'cities-filters' do %>
         <div>
           <%= label_tag :score_cost, "Cost Score" %>
-          <%= select_tag :score_cost, options_for_select(percentage_range_within(0, 100), @filters[:score_cost]), prompt: 'Choose a score' %>
+          <input class="slider-score" id="slider-score-cost" name="score_cost" data-slider-id='sliderScoreCost' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="<%= @filters[:score_cost] %>"/>
         </div>
         <div>
           <%= label_tag :score_internet, "Internet Score" %>
-          <%= select_tag :score_internet, options_for_select(percentage_range_within(0, 100), @filters[:score_internet]), prompt: 'Choose a score' %>
+          <input class="slider-score" id="slider-score-internet" name="score_internet" data-slider-id='sliderScoreInternet' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="<%= @filters[:score_internet] %>"/>
         </div>
         <div>
           <%= label_tag :score_fun, "Fun Score" %>
-          <%= select_tag :score_fun, options_for_select(percentage_range_within(0, 100), @filters[:score_fun]), prompt: 'Choose a score' %>
+          <input class="slider-score" id="slider-score-fun" name="score_fun" data-slider-id='sliderScoreFun' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="<%= @filters[:score_fun] %>"/>
         </div>
         <div>
           <%= label_tag :score_safety, "Safety Score" %>
-          <%= select_tag :score_safety, options_for_select(percentage_range_within(0, 100), @filters[:score_safety]), prompt: 'Choose a score' %>
+          <input class="slider-score" id="slider-score-safety" name="score_safety" data-slider-id='sliderScoreSafety' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="<%= @filters[:score_safety] %>"/>
         </div>
         <%= submit_tag "Filter", class: 'btn btn-primary' %>
       <% end %>
