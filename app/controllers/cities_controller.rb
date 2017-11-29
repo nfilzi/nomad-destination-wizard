@@ -2,12 +2,37 @@ class CitiesController < ApplicationController
   before_action :validate_previous_steps!
 
   def index
+    # INPUT from the wizard
     @selected_country_name = session['search']['country']
     @selected_score_nomad  = session['search']['score_nomad'].to_i
 
+    # FILTERS
+    @filters = params.permit(
+      :score_cost,
+      :score_internet,
+      :score_fun,
+      :score_safety
+    )
+
+    if @filters.present?
+      conditions = []
+
+      @filters.each do |attribute, value|
+        next if value.blank?
+        conditions << "#{attribute} >= #{value}"
+      end
+
+      conditions = conditions.join(' AND ')
+    end
+
+    # SEARCHING THE CITIES
     @cities = City.where(country: @selected_country_name).
       where("score_nomad >= #{@selected_score_nomad}").
       order(:name)
+
+    if conditions.present?
+      @cities = @cities.where(conditions)
+    end
   end
 
   private

@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   # 1. Get 3 countries
   #   1 Choose 3 countries OR I do not know
   #   OR
-  #   1a Prefer hot or cold temp?
-
-  # 2. Select country
+  #   1.a Prefer hot or cold temp?
+  # 2. Select country (must be signed in)
   # 3. Select nomad score (mockup for diploma of student)
   namespace :cities do
     namespace :search do
@@ -21,11 +20,7 @@ Rails.application.routes.draw do
   end
 
   # FILTERS
-  # 1. Average temp
-  # 3. 3 Countries
-
-  # 2. Choose city
-  # 5. Score
+  # Score
   #   - cost
   #   - internet
   #   - fun

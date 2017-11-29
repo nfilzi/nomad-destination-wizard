@@ -1,29 +1,56 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1>The cities</h1>
-      <p><%= @cities.count %> cities found!</p>
+      <h1><%= @cities.count %> cities found!</h1>
+      <p>with a minimum nomad score of <%= @selected_score_nomad %></p>
+
+      <%= form_tag cities_path, method: :get, class: 'cities-filters' do %>
+        <div>
+          <%= label_tag :score_cost, "Cost Score" %>
+          <%= select_tag :score_cost, options_for_select(percentage_range_within(0, 100), @filters[:score_cost]), prompt: 'Choose a score' %>
+        </div>
+        <div>
+          <%= label_tag :score_internet, "Internet Score" %>
+          <%= select_tag :score_internet, options_for_select(percentage_range_within(0, 100), @filters[:score_internet]), prompt: 'Choose a score' %>
+        </div>
+        <div>
+          <%= label_tag :score_fun, "Fun Score" %>
+          <%= select_tag :score_fun, options_for_select(percentage_range_within(0, 100), @filters[:score_fun]), prompt: 'Choose a score' %>
+        </div>
+        <div>
+          <%= label_tag :score_safety, "Safety Score" %>
+          <%= select_tag :score_safety, options_for_select(percentage_range_within(0, 100), @filters[:score_safety]), prompt: 'Choose a score' %>
+        </div>
+        <%= submit_tag "Filter", class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
   <div class="row">
-    <% @cities.each do |city| %>
-      <div class="col-xs-12 col-md-4">
-        <div>
-          <h2><%= city.name %></h2>
-          <ul>
-            <li><strong>rank:</strong> <%= city.rank %></li>
-            <li><strong>temperature:</strong> <%= city.temperature %></li>
-            <li><strong>weather_emoji:</strong> <%= city.weather_emoji %></li>
-            <li><strong>rent_cost_per_month:</strong> <%= city.rent_cost_per_month %></li>
-            <li><strong>wifi_speed:</strong> <%= city.wifi_speed %></li>
-            <li><strong>score_nomad:</strong> <%= city.score_nomad %></li>
-            <li><strong>score_cost:</strong> <%= city.score_cost %></li>
-            <li><strong>score_internet:</strong> <%= city.score_internet %></li>
-            <li><strong>score_fun:</strong> <%= city.score_fun %></li>
-            <li><strong>score_safety:</strong> <%= city.score_safety %></li>
-          </ul>
+    <% if @cities.any? %>
+      <% @cities.each do |city| %>
+        <div class="col-xs-12 col-md-4">
+          <div>
+            <h2><%= city.name %></h2>
+            <ul>
+              <li><strong>rank:</strong> <%= city.rank %></li>
+              <li><strong>temperature:</strong> <%= city.temperature %></li>
+              <li><strong>weather_emoji:</strong> <%= city.weather_emoji %></li>
+              <li><strong>rent_cost_per_month:</strong> <%= city.rent_cost_per_month %></li>
+              <li><strong>wifi_speed:</strong> <%= city.wifi_speed %></li>
+              <li><strong>score_nomad:</strong> <%= city.score_nomad %></li>
+              <li><strong>score_cost:</strong> <%= city.score_cost %></li>
+              <li><strong>score_internet:</strong> <%= city.score_internet %></li>
+              <li><strong>score_fun:</strong> <%= city.score_fun %></li>
+              <li><strong>score_safety:</strong> <%= city.score_safety %></li>
+            </ul>
+          </div>
         </div>
-      </div>
+      <% end %>
+    <% else %>
+      <p>
+        Try to change or
+        <%= link_to 'reset your filters', cities_path %>
+      </p>
     <% end %>
   </div>
 </div>
