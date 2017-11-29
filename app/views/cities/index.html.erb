@@ -1,7 +1,9 @@
+
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1><%= @cities.count %> cities found!</h1>
+      <h1><%= @cities.count %> cities found in <%= @selected_country_name %>!</h1>
       <p>with a minimum nomad score of <%= @selected_score_nomad %></p>
 
       <%= form_tag cities_path, method: :get, class: 'cities-filters' do %>
@@ -27,25 +29,84 @@
   </div>
   <div class="row">
     <% if @cities.any? %>
-      <% @cities.each do |city| %>
-        <div class="col-xs-12 col-md-4">
-          <div>
-            <h2><%= city.name %></h2>
-            <ul>
-              <li><strong>rank:</strong> <%= city.rank %></li>
-              <li><strong>temperature:</strong> <%= city.temperature %></li>
-              <li><strong>weather_emoji:</strong> <%= city.weather_emoji %></li>
-              <li><strong>rent_cost_per_month:</strong> <%= city.rent_cost_per_month %></li>
-              <li><strong>wifi_speed:</strong> <%= city.wifi_speed %></li>
-              <li><strong>score_nomad:</strong> <%= city.score_nomad %></li>
-              <li><strong>score_cost:</strong> <%= city.score_cost %></li>
-              <li><strong>score_internet:</strong> <%= city.score_internet %></li>
-              <li><strong>score_fun:</strong> <%= city.score_fun %></li>
-              <li><strong>score_safety:</strong> <%= city.score_safety %></li>
-            </ul>
+      <div class="cities">
+        <% @cities.each do |city| %>
+          <div class="col-xs-12 col-md-4">
+            <div class="city-card">
+              <div class="header" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.125) 0%, rgba(0,0,0,0.125) 100%), url('<%= city.picture_url %>');">
+                <h2 class="name"><%= city.name %></h2>
+                <div class="positioned rank">
+                  <%= city.rank %>
+                </div>
+
+                <div class="positioned weather">
+                  <div class="temperature">
+                    <%= city.temperature %>°C
+                  </div>
+                  <div class="weather-emoji">
+                    <%= city.weather_emoji %>
+                  </div>
+                </div>
+
+                <div class="positioned rent-cost">
+                  <%= city.rent_cost_per_month %>$
+                </div>
+                <div class="positioned wifi-speed">
+                  <%= city.wifi_speed %> MBPS
+                </div>
+              </div>
+
+              <div class="scores">
+                <div class="score nomad">
+                  <span>🎒 Nomad</span>
+                  <div class="rating">
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= city.score_nomad %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= city.score_nomad %>%;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="score cost">
+                  <span>💸 Cost</span>
+                  <div class="rating">
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= city.score_cost %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= city.score_cost %>%;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="score internet">
+                  <span>📡 Internet</span>
+                  <div class="rating">
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= city.score_internet %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= city.score_internet %>%;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="score fun">
+                  <span>😬 Fun</span>
+                  <div class="rating">
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= city.score_fun %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= city.score_fun %>%;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="score safety">
+                  <span>👮 Safety</span>
+                  <div class="rating">
+                    <div class="progress">
+                      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= city.score_safety %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= city.score_safety %>%;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <% else %>
       <p>
         Try to change or

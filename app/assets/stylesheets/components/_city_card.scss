@@ -1,0 +1,70 @@
+.city-card {
+  // height: 175px;
+  background-size: cover !important;
+  background-position: center;
+  margin-bottom: 2em;
+
+  .header {
+    background-cover: cover;
+    background-position: center;
+    background-color: #094FA2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    height: 200px;
+
+    .positioned {
+      position: absolute;
+    }
+
+    .rank {
+      top: 10px;
+      left: 10px;
+      font-size: 0.9em;
+      text-transform: uppercase;
+      border-bottom: 2px solid white;
+      padding: 0 0.5em;
+      padding-bottom: 0.05em;
+    }
+
+    .weather {
+      bottom: 10px;
+      left: 10px;
+      display: flex;
+      .temperature {
+        margin-right: 0.5em;
+      }
+    }
+
+    .rent-cost {
+      bottom: 10px;
+      right: 10px;
+    }
+
+    .wifi-speed {
+      top: 10px;
+      right: 10px;
+    }
+  }
+
+  .scores {
+    background-color: white;
+    padding: 1em;
+    .score {
+      font-size: 0.8em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .rating {
+      flex-basis: 50%;
+      .progress {
+        margin-bottom: 0;
+        height: 12px;
+      }
+    }
+  }
+}
