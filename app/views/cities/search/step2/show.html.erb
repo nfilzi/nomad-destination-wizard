@@ -1,18 +1,24 @@
-<h1>Select ONE country!</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Select ONE country!</h1>
 
-<%= form_tag(cities_search_step2_path) do %>
-  <ul>
-    <% @countries.each do |country| %>
-      <li>
-        <h2><%= country.name %></h2>
-        <ul class="unstyled-list">
-          <li><strong>AVG Price:</strong> <%= country.avg_price.round(2) %></li>
-          <li><strong>AVG Temp:</strong> <%= country.avg_temp.round(2) %></li>
+      <%= form_tag(cities_search_step2_path) do %>
+        <ul>
+          <% @countries.each do |country| %>
+            <li>
+              <h2><%= country.name %></h2>
+              <ul class="unstyled-list">
+                <li><strong>AVG Price:</strong> <%= country.avg_price.round(2) %></li>
+                <li><strong>AVG Temp:</strong> <%= country.avg_temp.round(2) %></li>
+              </ul>
+              <%= radio_button_tag :country, country.name %>
+              <%= label_tag "country_#{country.name}", 'SELECT' %>
+            </li>
+          <% end %>
         </ul>
-        <%= radio_button_tag :country, country.name %>
-        <%= label_tag "country_#{country.name}", 'SELECT' %>
-      </li>
-    <% end %>
-  </ul>
-  <%= submit_tag "Let's go", class: "btn btn-primary" %>
-<% end %>
+        <%= submit_tag "Let's go", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

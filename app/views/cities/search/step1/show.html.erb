@@ -1,8 +1,14 @@
-<h1>Choose 3 countries</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Choose 3 countries</h1>
 
-<%= form_tag(cities_search_step1_path) do %>
-  <%= select_tag :countries, options_for_select(@countries), multiple: true %>
-  <%= check_box_tag :no_countries, true %>
-  <%= label_tag :no_countries, "I don't know" %>
-  <%= submit_tag "Let's go!", class: "btn btn-primary" %>
-<% end %>
+      <%= form_tag(cities_search_step1_path) do %>
+        <%= select_tag :countries, options_for_select(@countries), multiple: true %>
+        <%= check_box_tag :no_countries, true %>
+        <%= label_tag :no_countries, "I don't know" %>
+        <%= submit_tag "Let's go!", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

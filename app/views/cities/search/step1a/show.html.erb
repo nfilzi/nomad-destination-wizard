@@ -1,11 +1,17 @@
-<h1>Do you prefer hot or cold temperatures?</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Do you prefer hot or cold temperatures?</h1>
 
-<%= form_tag(cities_search_step1a_path) do %>
-  <%= radio_button_tag :temperature, :hot %>
-  <%= label_tag :temperature_hot, 'HOT' %>
+      <%= form_tag(cities_search_step1a_path) do %>
+        <%= radio_button_tag :temperature, :hot %>
+        <%= label_tag :temperature_hot, 'HOT' %>
 
-  <%= radio_button_tag :temperature, :cold %>
-  <%= label_tag :temperature_cold, 'COLD' %>
+        <%= radio_button_tag :temperature, :cold %>
+        <%= label_tag :temperature_cold, 'COLD' %>
 
-  <%= submit_tag "Let's go!", class: "btn btn-primary" %>
-<% end %>
+        <%= submit_tag "Let's go!", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
