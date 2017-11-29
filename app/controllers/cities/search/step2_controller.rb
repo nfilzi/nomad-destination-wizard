@@ -1,4 +1,6 @@
 class Cities::Search::Step2Controller < ApplicationController
+  before_action :validate_previous_steps!
+
   def show
     get_countries
   end
@@ -23,6 +25,17 @@ class Cities::Search::Step2Controller < ApplicationController
   end
 
   private
+
+  def validate_previous_steps!
+    # step 1 validation
+    countries   = session['search']['countries'] if session['search']
+    step1_valid = countries.present? && countries.size == 3
+
+    unless step1_valid
+      flash[:notice] = "Let's start from the first step"
+      redirect_to cities_search_step1_path
+    end
+  end
 
   def params_valid?
     params[:country].present?
