@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+
+  devise_for :users
+
   # Étapes
   # 1. Get 3 countries
   #   1 Choose 3 countries OR I do not know
@@ -7,7 +10,7 @@ Rails.application.routes.draw do
   #   1a Prefer hot or cold temp?
 
   # 2. Select country
-  # 3. Average price (mockup for diploma of student)
+  # 3. Select nomad score (mockup for diploma of student)
   namespace :cities do
     namespace :search do
       resource :step1,   only: [:show, :create], controller: 'step1'

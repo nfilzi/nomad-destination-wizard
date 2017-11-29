@@ -1,4 +1,6 @@
 class Cities::Search::Step1Controller < ApplicationController
+  skip_before_action :authenticate_user!
+
   def show
     get_countries
   end
