@@ -50,26 +50,6 @@ cities_attributes.each.with_index do |city_attributes, index|
     score_safety:         city_attributes['score']['safety']
   }
 
-  # Étapes
-  # 1. Rank < 100 || 200 || ...
-  # 1. Get 3 countries
-  #   1.1 Choose 3 countries OR I do not know
-  #   OR
-  #   1.2 Prefer hot or cold temp?
-
-  # 2. Average price
-
-  # FILTERS
-  # 1. Average temp
-  # 3. 3 Countries
-
-  # 2. Choose city
-  # 5. Score
-  #   - cost
-  #   - internet
-  #   - fun
-  #   - safety
-
   City.create(usable_attributes)
 end
 
