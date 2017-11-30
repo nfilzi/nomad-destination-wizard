@@ -55,9 +55,17 @@ class Cities::Search::Step2Controller < ApplicationController
   def get_countries
     selected_countries_names = session['search']['countries']
 
-    @countries = City.select("country as name, count(name) as cities_count, avg(rent_cost_per_month) as avg_price, avg(temperature) as avg_temp").
+    @countries = City.select(<<~EOF
+        country AS name,
+        count(name) AS cities_count,
+        avg(rent_cost_per_month) AS avg_price,
+        avg(temperature) AS avg_temp,
+        min(weather_emoji) AS weather_emoji,
+        min(picture_url) AS picture_url
+      EOF
+      ).
       where(country: selected_countries_names).
       order(:country).
-      group("country")
+      group(:country)
   end
 end

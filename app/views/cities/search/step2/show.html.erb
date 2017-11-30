@@ -1,24 +1,46 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>Select ONE country!</h1>
+  <div class="wizard-step2">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h1>Select ONE country!</h1>
+      </div>
+    </div>
+    <%= form_tag cities_search_step2_path, class: 'form' do %>
+      <div class="row">
+        <% @countries.each do |country| %>
+          <div class="col-xs-12 col-md-4">
+            <%= label_tag "country_#{country.name}", class: 'country-card-label' do %>
+            <div class="city-card">
+              <div class="header" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.125) 0%, rgba(0,0,0,0.125) 100%), url('<%= country.picture_url %>');">
+                <h2 class="name"><%= country.name %></h2>
 
-      <%= form_tag(cities_search_step2_path) do %>
-        <ul>
-          <% @countries.each do |country| %>
-            <li>
-              <h2><%= country.name %></h2>
-              <ul class="unstyled-list">
-                <li><strong>AVG Price:</strong> <%= country.avg_price.round(2) %></li>
-                <li><strong>AVG Temp:</strong> <%= country.avg_temp.round(2) %></li>
-              </ul>
+                <div class="positioned weather">
+                  <div class="temperature">
+                    <%= country.avg_temp.to_i %>°C
+                  </div>
+                  <div class="weather-emoji">
+                    <%= country.weather_emoji %>
+                  </div>
+                </div>
+
+                <div class="positioned rent-cost">
+                  <%= country.avg_price.to_i %>$
+                </div>
+              </div>
+            </div>
+            <% end %>
+            <div class="country-selector">
               <%= radio_button_tag :country, country.name %>
               <%= label_tag "country_#{country.name}", 'SELECT' %>
-            </li>
-          <% end %>
-        </ul>
-        <%= submit_tag "Let's go", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <%= submit_tag "LET'S GO", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
