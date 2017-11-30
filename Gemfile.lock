@@ -119,6 +119,7 @@ GEM
       railties (= 5.0.6)
       sprockets-rails (>= 2.0.0)
     rails-assets-seiyria-bootstrap-slider (10.0.0)
+    rails-assets-select2 (4.0.5)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -200,6 +201,7 @@ DEPENDENCIES
   puma
   rails (= 5.0.6)
   rails-assets-seiyria-bootstrap-slider!
+  rails-assets-select2!
   redis
   sass-rails
   simple_form
