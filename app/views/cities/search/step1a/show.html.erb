@@ -1,17 +1,36 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h1>Do you prefer hot or cold temperatures?</h1>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="wizard-step-box wizard-step1a text-center">
+        <h1>Do you prefer hot or cold temperatures?</h1>
 
-      <%= form_tag(cities_search_step1a_path) do %>
-        <%= radio_button_tag :temperature, :hot %>
-        <%= label_tag :temperature_hot, 'HOT' %>
+        <%= form_tag cities_search_step1a_path, class: "form" do %>
+          <div class="temperature-selectors">
+            <div>
+              <%= label_tag :temperature_hot, class: 'image-label' do %>
+                <%= image_tag 'sun.png', height: 200 %>
+              <% end %>
+              <div>
+                <%= radio_button_tag :temperature, :hot %>
+                <%= label_tag :temperature_hot, 'HOT' %>
+              </div>
+            </div>
+            <div>
+              <%= label_tag :temperature_cold, class: 'image-label' do %>
+                <%= image_tag 'snowflake.png', height: 200 %>
+              <% end %>
+              <div>
+                <%= radio_button_tag :temperature, :cold %>
+                <%= label_tag :temperature_cold, 'COLD' %>
+              </div>
+            </div>
+          </div>
 
-        <%= radio_button_tag :temperature, :cold %>
-        <%= label_tag :temperature_cold, 'COLD' %>
-
-        <%= submit_tag "Let's go!", class: "btn btn-primary" %>
-      <% end %>
+          <div class="actions">
+            <%= submit_tag "LET'S GO!", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

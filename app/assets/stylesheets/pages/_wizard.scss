@@ -38,6 +38,23 @@
   }
 }
 
+.wizard-step1a {
+  .temperature-selectors {
+    display: flex;
+    justify-content: space-around;
+    margin: 2em 0;
+
+    .image-label {
+      margin-bottom: 1em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+}
+
 .wizard-step2 {
   margin-top: 5em;
 
