@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <h1><%= @cities.count %> cities found in <%= @selected_country_name %>!</h1>
-      <p>with a minimum nomad score of <%= @selected_score_nomad %></p>
+      <div class="cities-header">
+        <h1><%= @cities.count %> cities found in <%= @selected_country_name %>!</h1>
+        <p>with a <strong>minimum nomad score</strong> of <strong><%= @selected_score_nomad %></strong></p>
+      </div>
 
       <%= form_tag cities_path, method: :get, class: 'cities-filters' do %>
         <div>

@@ -1,6 +1,16 @@
+.cities-header {
+  margin: 1em 0;
+  padding: 1.5em;
+  background-color: white;
+
+  h1 {
+    margin-top: 0;
+  }
+}
+
 .cities-filters {
   display: flex;
-  padding: 1.5em;
   margin-bottom: 1em;
+  padding: 1.5em;
   background-color: white;
 }
