@@ -1,16 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h1>How nomadic your city of choice should be?</h1>
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="wizard-step3 text-center">
+        <h1>Sweet!<br> You're going to <%= @country.name %></h1>
 
-      <p>
-        Country of <%= @country.name %>
-      </p>
+        <p>
+          Now tell us...
+        </p>
 
-      <%= form_tag(cities_search_step3_path) do %>
-        <%= select_tag :score_nomad, options_for_select(percentage_range_within(@country.min_score_nomad, @country.max_score_nomad))%>
-        <%= submit_tag "Let's go!", class: "btn btn-primary" %>
-      <% end %>
+        <%= form_tag cities_search_step3_path, class: "form" do %>
+          <div class="score-nomad">
+            <%= label_tag :score_nomad, "How nomadic your city of choice should be?" %>
+            <input class="slider-score slider-score-nomad" id="slider-score-nomad" name="score_nomad" data-slider-id='sliderScoreNomad' type="text" data-slider-min="<%= @country.min_score_nomad.to_i %>" data-slider-max="<%= @country.max_score_nomad.to_i %>" data-slider-step="1" data-slider-value="<%= @country.min_score_nomad.to_i %>"/>
+          </div>
+          <div>
+            <%= submit_tag "LET'S GO!", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
