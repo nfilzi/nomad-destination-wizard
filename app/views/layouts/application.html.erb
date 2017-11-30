@@ -9,7 +9,7 @@
     <%= favicon_link_tag 'logo.png' %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
-  <body>
+  <body class="<%= yield :body_css_class %>">
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>

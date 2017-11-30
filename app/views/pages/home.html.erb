@@ -1,9 +1,13 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>Welcome to Nomad List Wizard!</h1>
+<% content_for :body_css_class, "home-body" %>
 
-      <%= link_to "Let's look for a city together!", cities_search_step1_path, class:"btn btn-primary" %>
+<div class="home-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+        <h1>Welcome to Nomad List Wizard 🙌</h1>
+
+        <%= link_to "Let's look for a city together", cities_search_step1_path, class:"btn btn-lg btn-primary" %>
+      </div>
     </div>
   </div>
 </div>
