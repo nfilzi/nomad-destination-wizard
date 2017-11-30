@@ -1,14 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h1>Choose 3 countries</h1>
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="wizard-step-box wizard-step1 text-center">
+        <h1>Choose 3 countries</h1>
 
-      <%= form_tag(cities_search_step1_path) do %>
-        <%= select_tag :countries, options_for_select(@countries), multiple: true %>
-        <%= check_box_tag :no_countries, true %>
-        <%= label_tag :no_countries, "I don't know" %>
-        <%= submit_tag "Let's go!", class: "btn btn-primary" %>
-      <% end %>
+        <%= form_tag cities_search_step1_path, class: "form" do %>
+          <div class="selectors">
+            <%= select_tag :countries, options_for_select(@countries), multiple: true, class: "countries-selector" %>
+
+            <span>OR</span>
+
+            <div class="no-countries-selector">
+              <%= check_box_tag :no_countries, true %>
+              <%= label_tag :no_countries, "I DON'T KNOW" %>
+            </div>
+          </div>
+
+          <div class="actions">
+            <%= submit_tag "LET'S GO!", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

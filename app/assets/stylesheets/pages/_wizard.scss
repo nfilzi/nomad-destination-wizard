@@ -1,3 +1,43 @@
+.wizard-step-box {
+  margin: 5em 0;
+  padding: 2em 2em;
+  background-color: white;
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
+
+.wizard-step1 {
+  h1 {
+    margin-bottom: 1em;
+  }
+
+  .selectors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3em;
+  }
+
+  .countries-selector {
+    margin-right: 2em;
+  }
+
+  .no-countries-selector {
+    margin-left: 2em;
+
+    label {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .wizard-step2 {
   margin-top: 5em;
 
@@ -49,22 +89,9 @@
 }
 
 .wizard-step3 {
-  margin: 5em 0;
-  padding: 2em 2em;
-  background-color: white;
-
-  h1 {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-  }
-
   .form {
     #sliderScoreNomad {
       margin: 0.5em;
-    }
-
-    .btn-primary {
-      width: 100%;
     }
 
     .score-nomad {
