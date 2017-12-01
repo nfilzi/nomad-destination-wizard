@@ -44,7 +44,7 @@ class Cities::Search::Step2Controller < ApplicationController
 
     unless step1_valid
       flash[:notice] = "Let's start from the first step"
-      redirect_to cities_search_step1_path
+      return redirect_to cities_search_step1_path
     end
   end
 

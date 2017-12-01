@@ -44,7 +44,7 @@ class CitiesController < ApplicationController
 
     unless step1_valid
       flash[:notice] = "Let's start from the first step"
-      redirect_to cities_search_step1_path
+      return redirect_to cities_search_step1_path
     end
 
     # step 2 validation
@@ -52,7 +52,7 @@ class CitiesController < ApplicationController
 
     unless step2_valid
       flash[:notice] = "Let's go back to the second step"
-      redirect_to cities_search_step2_path
+      return redirect_to cities_search_step2_path
     end
 
     # step 3 validation
@@ -60,7 +60,7 @@ class CitiesController < ApplicationController
 
     unless step3_valid
       flash[:notice] = "Let's go back to the third step"
-      redirect_to cities_search_step3_path
+      return redirect_to cities_search_step3_path
     end
   end
 end
